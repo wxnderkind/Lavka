@@ -7,34 +7,48 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Рынок цифровых услуг</h1>
-        <p>Выберите услугу для получения дополнительной информации или для связи.</p>
-    </header>
-    
-    <main>
-        <div class="service">
-            <h2>Услуга 1</h2>
-            <p>Описание услуги 1. Мы предоставляем высококачественные услуги в области разработки программного обеспечения.</p>
-            <button onclick="contactUs('Услуга 1')">Связаться</button>
-        </div>
-        
-        <div class="service">
-            <h2>Услуга 2</h2>
-            <p>Описание услуги 2. Поддержка и оптимизация бизнес-процессов с помощью современных технологий.</p>
-            <button onclick="contactUs('Услуга 2')">Связаться</button>
-        </div>
-        
-        <div class="service">
-            <h2>Услуга 3</h2>
-            <p>Описание услуги 3. Мы поможем вам с SEO-оптимизацией и продвижением вашего сайта.</p>
-            <button onclick="contactUs('Услуга 3')">Связаться</button>
-        </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2024 Рынок цифровых услуг</p>
-    </footer>
+    <!-- Табличка с данными пользователя -->
+    <div class="user-info">
+        <div class="user-details">
+            <p><strong>Имя:</strong> Иван Иванов</p>
+            <p><strong>ID:</strong> 123456789</p>
+            <p><strong>Баланс:</strong> $50.00</p>
+        </div>
+        <button class="top-up-button">Пополнить баланс</button>
+    </div>
+
+    <!-- Карточки товаров -->
+    <div class="products">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="ChatGPT Plus">
+            <h3>ChatGPT Plus</h3>
+            <p class="product-description">Подписка на ChatGPT Plus — полный доступ к функциям.</p>
+            <button class="buy-button" onclick="openProductDetails('chatgpt')">Подробнее</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Windows 10/11 Home">
+            <h3>Ключ Windows 10/11 Home</h3>
+            <p class="product-description">Лицензионный ключ для активации Windows 10 или 11.</p>
+            <button class="buy-button" onclick="openProductDetails('windows')">Подробнее</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Office 365">
+            <h3>Office 365</h3>
+            <p class="product-description">Полный пакет Microsoft Office для бизнеса и учебы.</p>
+            <button class="buy-button" onclick="openProductDetails('office')">Подробнее</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно с описанием товара -->
+    <div id="product-details" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductDetails()">×</span>
+            <h2 id="product-title"></h2>
+            <p id="product-description"></p>
+            <button class="buy-now-button">Купить</button>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
