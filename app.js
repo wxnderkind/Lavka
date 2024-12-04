@@ -1,23 +1,27 @@
-// app.js
+function openProductDetails(product) {
+    let title = '';
+    let description = '';
 
-function contactUs(service) {
-    const botApi = '7540557414:AAEqUjCnuerTAjRolMTk_pOdRZjct42r8Yw';
-    const chatId = '-1001234567890';  // Замените на свой chat_id Telegram группы или пользователя
-    const message = `Пользователь заинтересован в услуге: ${service}. Контакт для связи: [Телефон/Email].`;
+    // Описание товаров
+    if (product === 'chatgpt') {
+        title = 'ChatGPT Plus';
+        description = 'Подписка на ChatGPT Plus — полный доступ к функциям, включая улучшенную версию GPT-4.';
+    } else if (product === 'windows') {
+        title = 'Ключ Windows 10/11 Home';
+        description = 'Лицензионный ключ для активации Windows 10 или 11. Один ключ для одного устройства.';
+    } else if (product === 'office') {
+        title = 'Office 365';
+        description = 'Полный пакет Microsoft Office, включая Word, Excel, PowerPoint, OneNote и другие приложения.';
+    }
 
-    const url = `https://api.telegram.org/bot${botApi}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+    // Наполнение модального окна
+    document.getElementById('product-title').innerText = title;
+    document.getElementById('product-description').innerText = description;
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.ok) {
-                alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
-            } else {
-                alert('Произошла ошибка при отправке сообщения.');
-            }
-        })
-        .catch(error => {
-            alert('Ошибка сети. Попробуйте позже.');
-            console.error('Error:', error);
-        });
+    // Показываем модальное окно
+    document.getElementById('product-details').style.display = 'flex';
+}
+
+function closeProductDetails() {
+    document.getElementById('product-details').style.display = 'none';
 }
